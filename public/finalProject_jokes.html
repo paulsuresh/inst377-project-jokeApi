@@ -1,12 +1,23 @@
 <html>
 
 <head>
-    <title>Random Jokes!</title>
+    <title>Group INST 377 Joke Generator</title>
     <script type='text/javascript' src="finalProject_jokes.js" defer></script>
 </head>
 
 <body>
-    <h1>Random joke!</h1>
+    <header>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="help.html">Help</a>
+        </nav>
+      </header>
+      <h1>Random Joke Generator</h1>
+      <button id="fetchJoke" class="joke-button">Get a Joke</button>
+      <div class="instructions" id="jokeContainer">
+        <p>Click the button below to generate a random joke!</p>
+      </div>
     <form onsubmit="createJoke(); return false;">
         <label for="category">category:</label>
         <input type="text" id="category">

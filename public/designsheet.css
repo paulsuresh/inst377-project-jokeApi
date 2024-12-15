@@ -1,0 +1,122 @@
+nav {
+    background-color: #f4f4f4;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-family: Arial, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #02080e;
+    transition: transform 0.3s ease;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.joke-button {
+    display: block;
+    width: 400px;
+    height: 100px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.joke-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.instructions {
+    text-align: center;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+}
+
+
+
+h1 {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+}
+
+.about-content {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

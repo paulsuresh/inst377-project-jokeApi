@@ -58,6 +58,40 @@ async function loadJokeData() {
     });  
 }
 
+// Fetch jokes from JokeAPI
+async function fetchJoke() {
+    const apiUrl = "https://v2.jokeapi.dev/joke/Any";
+    const jokeContainer = document.getElementById("jokeContainer");
+  
+    // Display a loading message while fetching
+    jokeContainer.innerHTML = `<p>Loading your joke...</p>`;
+  
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) throw new Error("API fetch failed");
+  
+      const data = await response.json();
+      let joke;
+  
+      // Check the type of joke and format it accordingly
+      if (data.type === "single") {
+        joke = data.joke;
+      } else if (data.type === "twopart") {
+        joke = `<strong>Setup:</strong> ${data.setup}<br><strong>Delivery:</strong> ${data.delivery}`;
+      }
+  
+      jokeContainer.innerHTML = `<p>${joke}</p>`;
+    } catch (error) {
+      console.error("Error fetching from API", error);
+  
+      jokeContainer.innerHTML = `<p>Failed to fetch a joke! Please try again later.<br>
+      Here's a fallback joke: Why don’t skeletons fight each other? They don’t have the guts!</p>`;
+    }
+  }
+  
+  // Attach event listener to the joke button
+  document.getElementById("fetchJoke").addEventListener("click", fetchJoke);
+
 
 window.onload = loadJokeData;
 
