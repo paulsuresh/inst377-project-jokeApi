@@ -1,30 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="designsheet.css">
-  <title>Help - Random Joke Generator</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="finalProject_jokes.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="help.html">Help</a>
-    </nav>
-  </header>
-  <main>
-    <h1>Help & Instructions</h1>
-    <div class="instructions">
-      <p>Follow these steps to use the Random Joke Generator:</p>
-      <ul>
-        <li>Click the "Get a Joke" button on the Home page to generate a random joke.</li>
-        <li>If you want another joke, click the button again.</li>
-        <li>Visit the About page to learn more about our mission and purpose.</li>
-        <li>Share jokes with friends and family for extra laughs!</li>
-      </ul>
-    </div>
-  </main>
-</body>
+<html>
+    <head>
+        <title>Help</title>
+        <link rel="stylesheet" href="designsheet.css">
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper/swiper-bundle.min.css"
+        />
+        <style>
+            .swiper-container {
+                width: 80%;
+                height: 400px;
+                margin: 20px auto;
+            }
+            .swiper-slide img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="finalProject_jokes.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="help.html">Help</a>
+        </nav>
+
+        <h2>Instructions</h2>
+        <ol>
+            <li>Click on "Generate Joke" to receive a randomized joke</li>
+            <li>Click the button continuously if you want to see different jokes</li>
+            <li>Feel free to share jokes with friends, foes, and family!</li>
+        </ol>
+
+        <h2>Motivational Photos</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://preview.redd.it/zqp11v57xu551.png?auto=webp&s=104973660b80764ea9076a6e973fbacedf192b73" alt="Image 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://i.pinimg.com/736x/1d/be/80/1dbe809bbf30541826bddcb52f72e45c.jpg" alt="Image 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://i.pinimg.com/736x/ee/77/c9/ee77c974ba40e5f74ac63f48699f48c6.jpg" alt="Image 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://i.pinimg.com/736x/33/f8/1d/33f81d85ee006aae0a65df66f9aad2ee.jpg" alt="Image 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://i.pinimg.com/474x/97/3f/fd/973ffd1938c75c82b2254836df0dbd7b.jpg" alt="Image 5">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            const swiper = new Swiper('.swiper-container', {
+                loop: true, 
+                autoplay: {
+                    delay: 3000, 
+                    disableOnInteraction: false, 
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        </script>
+    </body>
 </html>

@@ -7,6 +7,8 @@
 </head>
 
 <body>
+
+  <!-- Header Bar -->
     <header>
         <nav>
           <a href="finalProject_jokes.html">Home</a>
@@ -14,11 +16,19 @@
           <a href="help.html">Help</a>
         </nav>
       </header>
+
       <h1>Random Joke Generator</h1>
+
+      <!-- Joke generator button -->
+
       <button id="fetchJoke" class="joke-button">Get a Joke</button>
+
       <div class="instructions" id="jokeContainer">
         <p>Click the button below to generate a random joke!</p>
       </div>
+
+
+      <!-- Form to add jokes -->
     <form onsubmit="createJoke(); return false;">
         <label for="category">category:</label>
         <input type="text" id="category">

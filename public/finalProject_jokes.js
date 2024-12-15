@@ -91,6 +91,7 @@ async function fetchJoke() {
   
   // Attach event listener to the joke button
   document.getElementById("fetchJoke").addEventListener("click", fetchJoke);
+  
 
 
 window.onload = loadJokeData;
