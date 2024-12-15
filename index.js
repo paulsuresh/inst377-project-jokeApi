@@ -12,6 +12,10 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = supabaseClient.createClient(supabaseUrl,supabaseKey)
 // API CREATION
 
+app.get('/', (req,res) => {
+    res.sendFile('public/finalProject_jokes.html', { root: __dirname})
+})
+
 app.get('/jokes', async (req,res) =>{
     console.log('attempting to get all jokes')
 
