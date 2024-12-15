@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="designsheet.css">
+  <title>Functionality - Joke Filters</title>
+  <script>
+    // Utility function to update the joke container
+    function updateJokeContainer(container, content) {
+      container.innerHTML = `<p>${content}</p>`;
+    }
+
+    // Fetch jokes from JokeAPI based on filters
+    async function fetchFilteredJoke() {
+      const category = document.getElementById("category").value;
+      const type = document.getElementById("type").value;
+      const lang = document.getElementById("lang").value;
+      const jokeContainer = document.getElementById("jokeContainer");
+
+      // Construct API URL with user-selected filters
+      const apiUrl = `https://v2.jokeapi.dev/joke/${category}?type=${type}&lang=${lang}`;
+
+      // Display a loading message
+      updateJokeContainer(jokeContainer, "Loading your joke...");
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error("API fetch failed");
+
+        const data = await response.json();
+        let joke;
+
+        // Check if the joke is single or two-part
+        if (data.type === "single") {
+          joke = data.joke;
+        } else if (data.type === "twopart") {
+          joke = `<strong>Setup:</strong> ${data.setup}<br><strong>Delivery:</strong> ${data.delivery}`;
+        }
+
+        // Update the DOM with the joke
+        updateJokeContainer(jokeContainer, joke);
+      } catch (error) {
+        console.error("Error fetching from API", error);
+        updateJokeContainer(
+          jokeContainer,
+          "Failed to fetch a joke! Please try again later."
+        );
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="finalProject_jokes.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="help.html">Help</a>
+      <a href="functionality.html">Filters</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Advanced Joke Filters</h1>
+    <form id="jokeFilterForm">
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="Any">Any</option>
+        <option value="Programming">Programming</option>
+        <option value="Misc">Miscellaneous</option>
+        <option value="Dark">Dark</option>
+        <option value="Pun">Puns</option>
+      </select>
+
+      <label for="type">Type:</label>
+      <select id="type">
+        <option value="single">Single</option>
+        <option value="twopart">Two-part</option>
+      </select>
+
+      <label for="lang">Language:</label>
+      <select id="lang">
+        <option value="en">English</option>
+        <option value="de">German</option>
+        <option value="es">Spanish</option>
+      </select>
+
+      <button type="button" id="applyFilters" class="joke-button" onclick="fetchFilteredJoke()">Get Filtered Joke</button>
+    </form>
+    <div class="instructions" id="jokeContainer">
+      <p>Select your preferences and generate tailored jokes!</p>
+    </div>
+  </main>
+</body>
+</html>
