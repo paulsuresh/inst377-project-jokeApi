@@ -1,8 +1,8 @@
-
+const host = window.location.origin;
 
 async function createJoke() {
     console.log('Creating Joke')
-    await fetch('http://localhost:3000/joke', {
+    await fetch(`${host}/joke`, {
         method: 'POST',
     body: JSON.stringify({
       category: `${document.getElementById('category').value}`,
@@ -18,7 +18,7 @@ async function createJoke() {
 }
 
 async function loadJokeData() {
-    await fetch('http://localhost:3000/jokes')
+    await fetch(`${host}/jokes`)
     .then((res) => res.json())
     .then((resJson) => {
         const table = document.createElement('table');
